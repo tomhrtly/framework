@@ -1393,4 +1393,17 @@ class Collection implements ArrayAccess, Enumerable
     {
         unset($this->items[$key]);
     }
+
+    /**
+     * Determine if an item does not exist in the collection.
+     *
+     * @param  mixed  $key
+     * @param  mixed  $operator
+     * @param  mixed  $value
+     * @return bool
+     */
+    public function missing($key, $operator = null, $value = null)
+    {
+        return !$this->contains($key, $operator, $value);
+    }
 }
